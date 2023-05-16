@@ -78,4 +78,9 @@ userRouter.get("/", async (req, res) => {
   }
 });
 
+userRouter.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findOne({ where: { id } });
+  return res.json(user);
+});
 export { userRouter };
